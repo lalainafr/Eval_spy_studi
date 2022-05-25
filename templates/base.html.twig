@@ -29,7 +29,55 @@
 <div class="container mt-5">
 
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-5">
+                <a class="navbar-brand" href="{{path('app_mission')}}"><img src="{{'/assets/img/secret_agent.jpeg'}}"
+                        alt="Logo" height="120px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        {# header Mission #}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('app_mission')}}">Mission</a>
+                        </li>
+                        {# <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li> #}
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+
+        <content class="container mt-2">
+            {% block body %}{% endblock %}
+        </content>
+        <footer>
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <small> © Tous droits réservés </small>
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p><small>Projet fait dans le cadre d'une évaluation d'entrainement.</small></p>
+                        <footer class="blockquote-footer">made by <i title="Source Title">Lalaina RAJAONAHSOA</i>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </footer>
+
     </body>
 </div>
 
