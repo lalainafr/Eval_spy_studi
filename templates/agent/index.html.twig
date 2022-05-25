@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des agents{% endblock %}
+
+{% block body %}
+<h1>Liste des agents</h1>
+<br>
+Vous trouverez dans cette page la liste des agents
+<a href="{{path('app_agent_add')}}" class="float-right">Ajouter un agent</a>
+<br><br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Code d'identification</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    {% for agent in agents %}
+    <tbody>
+        <tr>
+            <td>{{ agent.firstName }}</td>
+            <td>{{ agent.Lastname }}</td>
+            <td>{{ agent.birthDate |date(" d/m/Y") }}</td>
+            <td>{{ agent.idCode }}</td>
+            <td>
+                <a href="{{ path('app_agent_edit', {'id': agent.id })}}"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i></a>&nbsp&nbsp
+                <a href="{{ path('app_agent_delete', {'id': agent.id })}}"><i class="fa fa-trash-o"
+                        aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
