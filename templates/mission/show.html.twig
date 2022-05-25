@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'une mission{% endblock %}
+
+{% block body %}
+<h1>Détail d'une mission</h1>
+<br>
+<p>Vous pouvez voir les détails de la mission <span class="text-muted"> {{ mission.title}} </span>dans cette page</p>
+<br>
+<b>Description de la mission</b> <br>
+{{mission.description}}
+<br><br>
+<b>Nom de code </b><br>
+{{mission.codeName}}
+<br><br>
+<b>Date début</b> <br>
+{{mission.startDate | date("d/m/Y")}}
+<br><br>
+<b>Date fin</b> <br>
+{{mission.endDate | date("d/m/Y")}}
+<br><br>
+<a href="{{ path('app_mission')}}">Retour</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des missions{% endblock %}
+
+{% block body %}
+<h1>Liste des missions</h1>
+<br>
+Vous trouverez dans cette page la liste des missions
+<a href="{{path('app_mission_add')}}" class="float-right">Ajouter une mission</a>
+<br><br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Code</th>
+            <th scope="col">Date début</th>
+            <th scope="col">Date fin</th>
+            <th scope="col">Action...</th>
+        </tr>
+    </thead>
+    {% for mission in missions %}
+    <tbody>
+        <tr>
+            <td>{{ mission.title }}</td>
+            <td>{{ mission.description }}</td>
+            <td>{{ mission.codeName }}</td>
+            <td>{{ mission.startDate|date(" d/m/Y") }}</td>
+            <td>{{ mission.endDate|date("d/m/Y")}}</td>
+            <td>
+                <a href="{{ path('app_mission_show', {'id': mission.id })}}"><i class="fa fa-eye"
+                        aria-hidden="true"></i></a>&nbsp&nbsp
+                <a href="{{ path('app_mission_edit', {'id': mission.id })}}"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i></a>&nbsp&nbsp
+                <a href="{{ path('app_mission_delete', {'id': mission.id })}}"><i class="fa fa-trash-o"
+                        aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}

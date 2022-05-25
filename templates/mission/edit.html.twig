@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une mission{% endblock %}
+
+{% block body %}
+<h1>Modifier une mission</h1>
+<p>Vous pouvez modifier une mission dans cette page</p>
+<br>
+{{ form_start(form)}}
+{{ form_row(form.title)}}
+{{ form_row(form.description)}}
+{{ form_row(form.codeName)}}
+{{ form_row(form.startDate)}}
+{{ form_row(form.endDate)}}
+<input type="submit" value="Bouton" class="btn btn-info">
+{{ form_end(form)}}
+{% endblock %}
